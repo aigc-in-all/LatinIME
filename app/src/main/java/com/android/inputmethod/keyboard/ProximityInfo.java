@@ -87,13 +87,17 @@ public class ProximityInfo {
     }
 
     // TODO: Stop passing proximityCharsArray
-    private static native long setProximityInfoNative(int displayWidth, int displayHeight,
+    private static /*native*/ long setProximityInfoNative(int displayWidth, int displayHeight,
             int gridWidth, int gridHeight, int mostCommonKeyWidth, int mostCommonKeyHeight,
             int[] proximityCharsArray, int keyCount, int[] keyXCoordinates, int[] keyYCoordinates,
             int[] keyWidths, int[] keyHeights, int[] keyCharCodes, float[] sweetSpotCenterXs,
-            float[] sweetSpotCenterYs, float[] sweetSpotRadii);
+            float[] sweetSpotCenterYs, float[] sweetSpotRadii) {
+        return 1L;
+    }
 
-    private static native void releaseProximityInfoNative(long nativeProximityInfo);
+    private static /*native*/ void releaseProximityInfoNative(long nativeProximityInfo) {
+
+    }
 
     static boolean needsProximityInfo(final Key key) {
         // Don't include special keys into ProximityInfo.

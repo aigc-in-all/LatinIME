@@ -41,10 +41,16 @@ public final class BinaryDictionaryUtils {
     }
 
     @UsedForTesting
-    private static native boolean createEmptyDictFileNative(String filePath, long dictVersion,
-            String locale, String[] attributeKeyStringArray, String[] attributeValueStringArray);
-    private static native float calcNormalizedScoreNative(int[] before, int[] after, int score);
-    private static native int setCurrentTimeForTestNative(int currentTime);
+    private static /*native*/ boolean createEmptyDictFileNative(String filePath, long dictVersion,
+            String locale, String[] attributeKeyStringArray, String[] attributeValueStringArray) {
+        return false;
+    }
+    private static /*native*/ float calcNormalizedScoreNative(int[] before, int[] after, int score) {
+        return 0f;
+    }
+    private static /*native*/ int setCurrentTimeForTestNative(int currentTime) {
+        return 0;
+    }
 
     public static DictionaryHeader getHeader(final File dictFile)
             throws IOException, UnsupportedFormatException {
